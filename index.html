@@ -10,13 +10,13 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&display=swap">
   <style>
     :root {
-      --bg: #f6f4ef;
+      --bg: #fbfaf7;
       --surface: #ffffff;
-      --surface-2: #e9e6de;
+      --surface-2: #eeece6;
       --text: #161614;
       --muted: #66645d;
       --faint: #9a978e;
-      --line: #dcd8ce;
+      --line: #e0ddd5;
       --accent: #2f78b5;
       --grad: linear-gradient(115deg, #24629a 0%, #3a8cc8 50%, #6cb6e3 100%);
       --grid: rgba(22, 22, 20, 0.055);
@@ -47,7 +47,7 @@
     /* ---------- Nav ---------- */
     header {
       position: sticky; top: 0; z-index: 50;
-      background: rgba(246, 244, 239, 0.85);
+      background: rgba(251, 250, 247, 0.85);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--line);
@@ -59,7 +59,7 @@
     .nav-links a:hover { color: var(--text); }
 
     /* ---------- Hero ---------- */
-    .hero { padding: 96px 0 104px; }
+    .hero { padding: 64px 0 72px; }
     .hero-grid { display: grid; grid-template-columns: 1fr auto; gap: 72px; align-items: center; }
     h1 {
       font-family: var(--serif);
@@ -88,16 +88,16 @@
     .headshot img { width: 100%; height: 100%; object-fit: cover; }
 
     /* ---------- Sections ---------- */
-    section { padding: 96px 0; border-top: 1px solid var(--line); }
-    .section-head { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-bottom: 48px; flex-wrap: wrap; }
+    section { padding: 64px 0; border-top: 1px solid var(--line); }
+    .section-head { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-bottom: 36px; flex-wrap: wrap; }
     h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(2.4rem, 5vw, 3.6rem); line-height: 1; letter-spacing: -0.01em; }
 
     /* ---------- Projects ---------- */
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 44px 28px; }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px 32px; }
     .project { display: block; }
     .project .media {
       aspect-ratio: 3 / 2; border-radius: 12px; overflow: hidden;
-      background: var(--surface-2); margin-bottom: 16px; position: relative;
+      background: var(--surface-2); margin-bottom: 18px; position: relative;
     }
     .project .media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
     .project:hover .media img { transform: scale(1.04); }
@@ -111,15 +111,17 @@
       transition: opacity .3s, transform .3s;
     }
     .project:hover .media::after { opacity: 1; transform: none; }
-    .project .meta { display: flex; flex-direction: column-reverse; align-items: flex-start; gap: 4px; margin-bottom: 8px; }
-    .project h3 { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; line-height: 1.15; transition: color .2s; }
+    .project .meta { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 8px; }
+    .project h3 { font-family: var(--serif); font-weight: 400; font-size: 1.9rem; line-height: 1.1; transition: color .2s; }
     .project:hover h3 { color: var(--accent); }
-    .project .meta .label { white-space: nowrap; font-size: 0.68rem; }
-    .project p { color: var(--muted); font-size: 0.92rem; }
+    .project .meta .label { white-space: nowrap; font-size: 0.72rem; }
+    .project p { color: var(--muted); font-size: 0.98rem; max-width: 560px; }
 
     .project.wide { grid-column: span 2; display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center; }
     .project.wide .media { margin-bottom: 0; aspect-ratio: 16 / 10; }
     .project.wide h3 { font-size: 2.6rem; }
+    .project.wide .meta { display: block; margin-bottom: 4px; }
+    .project.wide p { margin-top: 12px; }
 
     /* ---------- About ---------- */
     .about-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 64px; }
@@ -129,9 +131,9 @@
     .skills span { font-size: 0.85rem; padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); }
 
     /* ---------- Closing ---------- */
-    .closing { text-align: center; padding: 120px 0; }
+    .closing { text-align: center; padding: 16px 0 24px; }
     .closing h2 { font-size: clamp(2.4rem, 5vw, 3.8rem); margin: 14px 0 16px; }
-    .closing p { color: var(--muted); font-size: 1.1rem; max-width: 480px; margin: 0 auto 40px; }
+    .closing p { color: var(--muted); font-size: 1.1rem; max-width: 480px; margin: 0 auto 32px; }
     .actions { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
     .btn {
       display: inline-flex; align-items: center; gap: 10px;
@@ -162,16 +164,18 @@
       .hero-grid { grid-template-columns: 1fr; gap: 40px; }
       .headshot { width: 200px; order: -1; margin-left: 11px; }
       .about-grid { grid-template-columns: 1fr; gap: 24px; }
-      .grid { grid-template-columns: repeat(2, 1fr); }
+      .project.wide { grid-template-columns: 1fr; gap: 18px; }
+      .project.wide .media { aspect-ratio: 3 / 2; }
+      .project.wide h3 { font-size: 2.2rem; }
     }
     @media (max-width: 700px) {
-      .hero { padding: 56px 0 72px; }
-      section { padding: 72px 0; }
-      .grid { grid-template-columns: 1fr; gap: 48px; }
+      .hero { padding: 40px 0 52px; }
+      section { padding: 52px 0; }
+      .grid { grid-template-columns: 1fr; gap: 40px; }
       .project.wide { grid-column: auto; }
       .project .media::after { opacity: 1; transform: none; }
       .nav-links { gap: 18px; font-size: 0.9rem; }
-      .closing { padding: 88px 0; }
+      .closing { padding: 8px 0 16px; }
     }
     @media (max-width: 420px) {
       .brand { display: none; }
@@ -250,10 +254,13 @@
 
         <div class="grid">
 
-          <a class="project reveal" href="soft robots/elliott_drake180_sb_dme_2026_thesis_reduced.pdf" target="_blank">
+          <a class="project wide reveal" href="soft robots/elliott_drake180_sb_dme_2026_thesis_reduced.pdf" target="_blank">
             <div class="media"><img src="soft robots/gripper mechanism.png" alt="Soft robotic gripper mechanism"></div>
-            <div class="meta"><h3>Soft Robotic Gripper</h3><span class="label">Senior Thesis</span></div>
-            <p>A pneumatic steering system for soft growing robots in tight spaces, with custom soft actuators and predictive kinematic models of bending during deployment.</p>
+            <div>
+              <div class="meta"><span class="label">Senior Thesis</span></div>
+              <h3>Soft Robotic Gripper</h3>
+              <p>A pneumatic steering articulation system for soft growing robots navigating tightly constrained spaces, with custom soft actuators and predictive kinematic models of deflection and bending during deployment.</p>
+            </div>
           </a>
 
           <a class="project reveal" href="009 polar/polar presentation drake elliott.pdf" target="_blank">
